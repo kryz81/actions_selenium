@@ -19,5 +19,5 @@ jobs:
         uses: gradle/actions/setup-gradle@v3
       - name: Build with Gradle
         run: |
-          git update-index --chmod=+x gradlew
+          chmod a+x ./gradlew
           ./gradlew clean test
