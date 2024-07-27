@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -6,8 +7,11 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class FirstTest {
-    public static void main(String[] args) {
+    @Test
+    void test() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless=new");
         WebDriver driver = new ChromeDriver(options);
@@ -25,7 +29,9 @@ public class FirstTest {
         submitButton.click();
 
         WebElement message = driver.findElement(By.id("message"));
-        message.getText();
+        var msg = message.getText();
+
+        assertEquals("Received!", msg);
 
         driver.quit();
     }

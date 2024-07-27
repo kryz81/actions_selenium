@@ -14,5 +14,8 @@ jobs:
         with:
           distribution: temurin
           java-version: '21'
-      - name: build and test
-        run: gradle clean build
+          architecture: x64
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+      - name: Build with Gradle
+        run: ./gradlew clean test
