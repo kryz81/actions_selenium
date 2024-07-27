@@ -15,4 +15,4 @@ jobs:
           distribution: temurin
           java-version: '21'
       - name: build and test
-        run: mvn clean test
+        run: gradle clean build
